@@ -1,0 +1,1 @@
+Proposal: For a configured time-frame, calculate the slope of the price to determine if it's rising or falling. If the slope greater than a certain setting, Buy, Sell if it's below something else, otherwise hold it.
