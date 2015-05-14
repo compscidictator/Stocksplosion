@@ -1,0 +1,24 @@
+
+{% extends "layout.html" %}
+{% block content %}
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron">
+  <h1>Welcome to Stocksplosion</h1>
+</div><!-- /.jumbotron -->
+
+<div class="body-content">
+  <div class="row">
+    <div class="col-lg-12">
+      <h2><i class="fa fa-code"></i> Check out a stock</h2>
+        <form id="stockQuote" class="form" method="POST" action="/" role="quote">
+          {{ quote.hidden_tag() }}
+          <div class="form-group">
+              {{quote.symbol.label}}
+              {{quote.symbol(placeholder="Symbol", class_="form-control")}}
+          </div>
+          <p><input class="btn btn-defailt btn-submit" type="submit" value="Get quote"></p>
+      </form>
+    </div>
+  </div><!-- /.row -->
+</div>
+{% endblock %}

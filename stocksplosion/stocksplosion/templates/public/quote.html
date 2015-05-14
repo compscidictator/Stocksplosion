@@ -1,0 +1,25 @@
+
+{% extends "layout.html" %}
+{% block content %}
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron">
+  <h1>Quote for {{ symbol }}</h1>
+</div><!-- /.jumbotron -->
+
+<div class="body-content">
+  <div class="row">
+    <div class="col-lg-6">
+        <h2>Recent performance of {{ symbol }}</h2>
+        <div>
+          Performance goes here
+        </div>
+    </div>
+      <div class="col-lg-6">
+          <h2>Recomendation for {{ symbol }}</h2>
+          <div>
+            Recomendation goes here
+          </div>
+      </div>
+  </div><!-- /.row -->
+</div>
+{% endblock %}
