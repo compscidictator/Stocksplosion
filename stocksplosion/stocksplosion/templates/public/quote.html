@@ -1,25 +1,50 @@
-
 {% extends "layout.html" %}
 {% block content %}
 <!-- Main jumbotron for a primary marketing message or call to action -->
+
+
+
 <div class="jumbotron">
-  <h1>Quote for {{ symbol }}</h1>
+  <h1>Quote for {{ company_name }}</h1>
 </div><!-- /.jumbotron -->
+<!-- TODO: allow search for new quote on this page -->
 
 <div class="body-content">
   <div class="row">
     <div class="col-lg-6">
-        <h2>Recent performance of {{ symbol }}</h2>
-        <div>
-          Performance goes here
+        <h2>Recent performance:</h2>
+        <div id='{{ graph.chartID|safe }}' class="chart"></div>
+            <script>
+                var chart_id = '{{ graph.chartID|safe }}'
+                var series = {{ graph.series|tojson|safe }}
+                var title = {{ graph.title|safe }}
+                var xAxis = {{ graph.xAxis|tojson|safe }}
+                var yAxis = {{ graph.yAxis|safe }}
+                var chart = {{ graph.chart|safe }}
+            </script>
+            <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+            <script src="http://code.highcharts.com/highcharts.js"></script>
+            <script>
+                var c = $('#'+chart_id)
+                c.highcharts({
+                    chart: chart,
+                    title: title,
+                    xAxis: xAxis,
+                    yAxis: yAxis,
+                    series: series
+                });
+            </script>
         </div>
     </div>
-      <div class="col-lg-6">
-          <h2>Recomendation for {{ symbol }}</h2>
-          <div>
-            Recomendation goes here
-          </div>
+  </div><!-- /.row -->
+  <div class=row>
+    <div class="col-lg-6">
+      <h2>Recomendation for {{ symbol }}</h2>
+      <div>
+          <!-- TODO: Change colors based on recomendation -->
+          <h3><b>{{ recomendation }}</b></h3>
       </div>
+    </div>
   </div><!-- /.row -->
 </div>
 {% endblock %}

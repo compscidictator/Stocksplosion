@@ -9,7 +9,10 @@
 <div class="body-content">
   <div class="row">
     <div class="col-lg-12">
-      <h2><i class="fa fa-code"></i> Check out a stock</h2>
+      <h2>Get a quote</h2>
+        {% if missing %}
+        <div style= 'color:red' >There is no data for that symbol, try a different company.</div>
+        {% endif %}
         <form id="stockQuote" class="form" method="POST" action="/" role="quote">
           {{ quote.hidden_tag() }}
           <div class="form-group">
