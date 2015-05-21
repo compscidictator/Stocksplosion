@@ -93,8 +93,6 @@ def quote(symbol):
     quote_str = urlopen(url).read();
     quote = json.loads(quote_str)
   except HTTPError as e:
-    #TODO: Do something helpful when missing a symbol
-
     return redirect(url_for('public.home', missing=True))
 
   slope = slope_from_prices(quote['prices'])

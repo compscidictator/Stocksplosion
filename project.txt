@@ -3,3 +3,8 @@ Proposal: For a configured time-frame, calculate the slope of the price to deter
 Time: May 14 2015: 1h15m setting up base app framework
       May 19 2015: 40m integrating with API
       May 20 2015: 1h add chart, handle edge cases
+
+Remaining work items:
+  Display the available symbols to the user before they search.
+  Allow the user to get a new quote directly from the quote page.
+  Load days to analyse, and slope cutoffs from config.
